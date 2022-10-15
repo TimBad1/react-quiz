@@ -3,35 +3,72 @@ import './index.scss';
 
 const questions = [
   {
-    title: 'React - это ... ?',
-    variants: ['библиотека', 'фреймворк', 'приложение'],
+    title: 'Атритут lang=en располагается в элементе:',
+    variants: ['doctype', 'head', 'html'],
+    correct: 2,
+  },
+  {
+    title: 'Чтобы связать label и input используют атрибуты:',
+    variants: ['for + name', 'name + id', 'for + id'],
+    correct: 2,
+  },
+  {
+    title: 'Какой атрибут нужно задать элементу video, чтобы появилась панель управления видеоплеера',
+    variants: ['controls', 'panel', 'buttons'],
     correct: 0,
   },
   {
-    title: 'Компонент - это ... ',
-    variants: ['приложение', 'часть приложения или страницы', 'то, что я не знаю что такое'],
+    title: 'Если поместить на страницу несколько элементов списка <li> без внешнего контейнера (без ol или ul), то они будут отображаться как:',
+    variants: ['элементы нумерованного списка', 'элементы маркированного списка', 'никак отличаться от базового текста не будут'],
     correct: 1,
   },
   {
-    title: 'Что такое JSX?',
-    variants: [
-      'Это простой HTML',
-      'Это функция',
-      'Это тот же HTML, но с возможностью выполнять JS-код',
-    ],
+    title: 'Какой атрибут указывает путь к файлу или странице, где располагается обработчик данных формы?',
+    variants: ['src', 'href', 'action'],
     correct: 2,
+  },
+  {
+    title: 'Правильной вложенностью будет считаться:',
+    variants: ['ul > a > li', 'li > ul > a', 'ul > li > a'],
+    correct: 2,
+  },
+  {
+    title: 'В маркированном списке ul, без дополнительных стилей, очкарядом с элементом списка появляется благодаря использованию:',
+    variants: ['элемента li', 'элемента ul', 'абсолютно любого элемента первого уровня внутри ul'],
+    correct: 0,
+  },
+  {
+    title: 'Параграфы обозначаются с помощью элемента',
+    variants: ['p', 'paragraph', 'text'],
+    correct: 0,
+  },
+  {
+    title: 'Как указывается ссылка-якорь anchor в аттрибуте href',
+    variants: ['#anchor', '.anchor', '_anchor'],
+    correct: 0,
+  },
+  {
+    title: 'Какой мета-тег используется для описания страницы (поле name элемента meta):',
+    variants: ['content', 'about', 'description'],
+    correct: 2,
+  },
+  {
+    title: 'Текст в элементе img, который выведется вместо изображения, если оно не доступно, записывается в атрибут:',
+    variants: ['title', 'alt', 'alternative'],
+    correct: 1,
   },
 ];
 
 function Result({ correct }) {
+  const reLoad = () => {
+    console.log()
+    document.location.reload();
+  }
   return (
     <div className="result">
-      <img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" />
+      <img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" alt='Тест окончен' />
       <h2>Вы отгадали {correct} ответа из {questions.length}</h2>
-      <a href='/'>
-        <button>Попробовать снова</button>
-      </a>
-      
+      <button onClick={() => reLoad()}>Попробовать снова</button>      
     </div>
   );
 }
